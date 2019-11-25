@@ -12,11 +12,14 @@
   <body>
     <header>
       <div class="header-logo">
-        <a href="/">LifeApp</a>
+        <%= link_to('LifeApp', root_path)%>
       </div>
       <ul class="header-menus">
         <li>
-          <a href="/about">LifeAppとは</a>
+          <%= link_to('LifeAppとは', about_path)%>
+        </li>
+        <li>
+          <%= link_to("つぶやく", posts_hesitation_path)%>
         </li>
       </ul>
     </header>
