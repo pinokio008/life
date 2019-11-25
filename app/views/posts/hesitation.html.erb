@@ -1,0 +1,9 @@
+<div class="main posts-index">
+  <div class="container">
+    <%= bootstrap_form_with(model: @post, url: posts_api_path, local: true) do |f| %>
+      <%= f.text_field :content %>
+      <%= f.hidden_field :user_id, :value => @user.id %>
+      <%= f.submit "ok" %>
+    <% end %>
+  </div>
+</div>
