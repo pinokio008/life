@@ -3,6 +3,7 @@ require 'net/http'
 require 'openssl'
 
 class Post < ApplicationRecord
+  enum pageid: { hesitation: 0 }
   def self.useRFQ(uri, host, key)
     url = URI(uri)
 
