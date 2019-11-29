@@ -1,9 +1,17 @@
-<div class="main posts-index">
+<div class="main posts-new">
   <div class="container">
-    <%= bootstrap_form_with(model: @post, url: posts_api_path, local: true) do |f| %>
-      <%= f.text_field :content %>
-      <%= f.hidden_field :user_id, :value => @user.id %>
-      <%= f.submit "ok" %>
+    <h1 class="form-heading">投稿する</h1>
+    <%= form_with(model: @post, local: true) do |form| %>
+
+    <div class="form">
+      <div class="form-body">
+        <%= form.label :content, "投稿内容" %>
+        <%= form.text_field :content %>
+        <%= form.hidden_field :user_id, :value => user_signed_in? ? current_user.id : nil %>
+        <%= form.hidden_field :pageid, :value => "hesitation" %>
+        <%= form.submit "投稿" %>
+      </div>
+    </div>
     <% end %>
   </div>
 </div>
