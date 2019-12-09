@@ -3,6 +3,9 @@
     <div class="posts-index-item">
       <%= @word %>
     </div>
+    <div class="posts-index-item">
+      <%= link_to("Google翻訳", "https://translate.google.co.jp/?hl=ja", target: :_blank) %>
+    </div>
     <%= form_with(model: @post, local: true) do |form| %>
       <div class="form">
         <div class="form-body">

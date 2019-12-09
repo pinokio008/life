@@ -1,0 +1,23 @@
+<div class="main posts-show">
+  <div class="container">
+    <div class="posts-index-item">
+      <%= link_to("Google翻訳", "https://translate.google.co.jp/?hl=ja", target: :_blank) %>
+    </div>
+    <div class="posts-show-item">
+      <% @posts.each do |post| %>
+      <p>
+        <%= post.content %>
+      </p>
+      <p>
+        <%= post.content_api %>
+      </p>
+      <p>
+        <%= post.content_second %>
+      </p>
+      <div class="post-time">
+        <%= post.updated_at %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>

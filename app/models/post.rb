@@ -1,6 +1,7 @@
 require 'uri'
 require 'net/http'
 require 'openssl'
+require 'json'
 
 class Post < ApplicationRecord
   enum pageid: { hesitation: 0 }
@@ -15,6 +16,6 @@ class Post < ApplicationRecord
     request["x-rapidapi-host"] = host
     request["x-rapidapi-key"] = key
 
-    return http.request(request)
+    return JSON.parse http.request(request).read_body
   end
 end
