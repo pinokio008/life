@@ -1,7 +1,8 @@
 class PostsController < ApplicationController
   def api
-    hash = Post.useRFQ("https://qvoca-bestquotes-v1.p.rapidapi.com/quote",'qvoca-bestquotes-v1.p.rapidapi.com','dcad5607dbmshe831b61a9a07b62p1ce3b0jsne83a312de0ac')
-    @word = hash["message"]
+    hash = Post.useRFQ("https://goodreads-best-quotes.p.rapidapi.com/random","goodreads-best-quotes.p.rapidapi.com","dcad5607dbmshe831b61a9a07b62p1ce3b0jsne83a312de0ac")
+    hash2 = hash["data"]
+    @word = hash2["content"]
     @post = Post.find(params[:id])
   end
 
@@ -34,6 +35,13 @@ class PostsController < ApplicationController
     end
   end
 
+  def delete
+    @post = Post.find(params[:id])
+    @post.destroy
+    redirect_to user_path(current_user)
+  end
+
+  private
   def content_params
     params.require(:post).permit(:user_id, :pageid, :content, :content_api, :content_second)
   end

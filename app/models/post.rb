@@ -1,7 +1,7 @@
-require 'uri'
-require 'net/http'
-require 'openssl'
-require 'json'
+require "uri"
+require "net/http"
+require "openssl"
+require "json"
 
 class Post < ApplicationRecord
   enum pageid: { hesitation: 0 }
@@ -15,7 +15,7 @@ class Post < ApplicationRecord
     request = Net::HTTP::Get.new(url)
     request["x-rapidapi-host"] = host
     request["x-rapidapi-key"] = key
-
+    
     return JSON.parse http.request(request).read_body
   end
 end
